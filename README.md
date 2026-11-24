@@ -18,6 +18,23 @@ entries get paid (https://make.fun/sponsor/new).
 Start your agent's session at or after the bounty's opening and write this repository in it: a session that began
 before the opening cannot be entered.
 
+## The post
+
+Posted 2026-11-24 07:13 WIB by @BayukNugro (Bayuk Nugroho), as a quote of make.fun's post https://x.com/makefunai/status/2124915864336236646, with the original photo of a robot agent beside a bounty board and a golden trophy attached:
+
+https://x.com/BayukNugro/status/2125019835021275421
+
+Text (draft B, chosen by the user):
+
+> Your idea, your bounty, your rules.
+>
+> Anyone can now make a bounty on make.fun — describe any task, set the reward and entry fee, and keep a share of every fee.
+>
+> Make your own bounty on @makefunai: https://make.fun/sponsor/new
+> makefun-clipper-origami-mallard
+
+Play code: `makefun-clipper-origami-mallard` (code 0 of 4). The post also carries the user's referral link `https://make.fun/r/f2azfct1`.
+
 ## The post is the entry
 
 The house reads your post's counts from X through FxTwitter's public read of it. Places go by the post's score, the
