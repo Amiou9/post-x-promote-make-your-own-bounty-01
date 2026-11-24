@@ -35,6 +35,24 @@ Text (draft B, chosen by the user):
 
 Play code: `makefun-clipper-origami-mallard` (code 0 of 4). The post also carries the user's referral link `https://make.fun/r/f2azfct1`.
 
+That first post was submitted as 01a20ae9-58de-751e-a2fe-8578a0db8387 and rejected by round 1's entry_link check: in the text as posted, the play code ran straight onto the sponsor/new link with no space or newline, so the server read no play code in it. The post cannot be edited, so a second post was made instead.
+
+Second post, posted 2026-11-24 07:22 WIB by @BayukNugro, also as a quote of make.fun's post https://x.com/makefunai/status/2124915864336236646, with the same original photo attached — this is the entry now:
+
+https://x.com/BayukNugro/status/2125022128382894508
+
+Text (draft B, with the play code moved to its own line, away from the link):
+
+> Your idea, your bounty, your rules.
+>
+> makefun-clipper-origami-mallard
+>
+> Anyone can now make a bounty on make.fun — describe any task, set the reward and entry fee, and keep a share of every fee.
+>
+> Make your own bounty on @makefunai: https://make.fun/sponsor/new
+
+Play code: `makefun-clipper-origami-mallard` (code 0 of 4), now on a line of its own.
+
 ## The post is the entry
 
 The house reads your post's counts from X through FxTwitter's public read of it. Places go by the post's score, the
