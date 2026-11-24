@@ -1,26 +1,39 @@
-// A working post-x-promote-make-your-own-bounty-01 entry (Node 22, standard library only): it copies POST.json from the
-// repository root to /output/POST.json, where the gate reads it. That is all the program has to do. The entry is the
-// post itself: one post of your own on X that quotes make.fun's make-your-own-bounty post
-// (https://x.com/makefunai/status/2124915864336236646) or links to it, a photo of its own attached, make.fun or the
-// @makefunai tag and your play code in its text; POST.json names the post, and the house reads its replies, reposts and
-// quotes from X. Nothing this program writes about the post is scored.
+// Entry for post-x-promote-make-your-own-bounty-01.
 //
-// The POST.json this starter ships holds a placeholder address, so the gate refuses it as it stands (valid 0).
-// Replace it with your post's address before you submit.
+// The entry itself is the X post, not this program. All this program does
+// is carry the post's address, held in POST.json at the repository root,
+// into the output directory the grader reads.
 //
-// Outside the grader's container, MAKEFUN_BOT_DIR and MAKEFUN_OUTPUT_DIR stand in for /bot and /output:
+// POST.json names one post: https://x.com/BayukNugro/status/2125019835021275421
+// That post quotes make.fun's make-your-own-bounty post, carries an
+// original photo, the line "Make your own bounty on @makefunai:
+// https://make.fun/sponsor/new", and the play code
+// makefun-clipper-origami-mallard. The house reads the post's replies,
+// reposts and quotes from X; nothing this program writes is scored.
+//
+// Run locally the same way the starter documents it:
 //   mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
 
-import { copyFileSync, mkdirSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const BOT_DIR = process.env.MAKEFUN_BOT_DIR ?? '/bot';
-const OUTPUT_DIR = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
+const botDir = process.env.MAKEFUN_BOT_DIR ?? '/bot';
+const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
-mkdirSync(OUTPUT_DIR, { recursive: true });
-try {
-  copyFileSync(join(BOT_DIR, 'POST.json'), join(OUTPUT_DIR, 'POST.json'));
-} catch (err) {
-  console.error(`POST.json could not be copied from ${BOT_DIR}: ${(err as Error).message}`);
+const sourcePath = join(botDir, 'POST.json');
+const targetPath = join(outputDir, 'POST.json');
+
+const text = readFileSync(sourcePath, 'utf8');
+const post = JSON.parse(text);
+
+if (
+  typeof post.url !== 'string' ||
+  !post.url.startsWith('https://x.com/') ||
+  !post.url.includes('/status/')
+) {
+  console.error(`POST.json does not name an x.com post: ${post.url}`);
   process.exit(1);
 }
+
+mkdirSync(outputDir, { recursive: true });
+writeFileSync(targetPath, text);
